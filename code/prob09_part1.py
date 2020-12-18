@@ -8,14 +8,16 @@ def is_sum(num, nums):
         return True
   return False
 
-seen_nums = deque()
-with open('../data/prob09.txt') as f:
-  for line in f.readlines():
-    line = line.strip()
-    if len(seen_nums) == 25:
-      if not is_sum(int(line), list(seen_nums)):
-        print(line)
-        break
-      seen_nums.popleft()
-    seen_nums.append(int(line))
+def run():
+  seen_nums = deque()
+  with open('../data/prob09.txt') as f:
+    for line in f.readlines():
+      line = line.strip()
+      if len(seen_nums) == 25:
+        if not is_sum(int(line), list(seen_nums)):
+          return int(line)
+        seen_nums.popleft()
+      seen_nums.append(int(line))
 
+if __name__ == '__main__':
+  print(run())

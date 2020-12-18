@@ -35,20 +35,24 @@ def validate_field(key, value):
   except:
     return False
 
-with open('../data/prob04.txt') as f:
-  found_fields = set()
-  valid = 0
-  for line in f.readlines():
-    if not line.strip():
-      if found_fields == required_fields:
-        valid += 1
-      found_fields = set()
-    else:
-      pairs = line.strip().split()
-      for pair in pairs:
-        key, value = pair.split(':')
-        if key in required_fields and validate_field(key, value):
-          found_fields.add(key)
-  if found_fields == required_fields:
-    valid += 1
-  print(valid)
+def run():
+  with open('../data/prob04.txt') as f:
+    found_fields = set()
+    valid = 0
+    for line in f.readlines():
+      if not line.strip():
+        if found_fields == required_fields:
+          valid += 1
+        found_fields = set()
+      else:
+        pairs = line.strip().split()
+        for pair in pairs:
+          key, value = pair.split(':')
+          if key in required_fields and validate_field(key, value):
+            found_fields.add(key)
+    if found_fields == required_fields:
+      valid += 1
+    return valid
+
+if __name__ == '__main__':
+  print(run())

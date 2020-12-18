@@ -32,24 +32,28 @@ def dfs_search(bag, bag_counts=None):
   return count
 
 bags = {}
-with open('../data/prob07.txt') as f:
-  for line in f.readlines():
-    line = line.strip()
-    words = line.replace(',', '').replace('.', '').split()
+def run():
+  with open('../data/prob07.txt') as f:
+    for line in f.readlines():
+      line = line.strip()
+      words = line.replace(',', '').replace('.', '').split()
 
-    this_bag = get_bag(words[0] + ' ' + words[1])
+      this_bag = get_bag(words[0] + ' ' + words[1])
 
-    words = words[4:]
-    while words:
-      count = words[0]
-      if count == 'no':
-        count = 0
-      else:
-        count = int(count)
-      new_bag = get_bag(words[1] + ' ' + words[2])
-      this_bag.add_connection(new_bag, count)
       words = words[4:]
+      while words:
+        count = words[0]
+        if count == 'no':
+          count = 0
+        else:
+          count = int(count)
+        new_bag = get_bag(words[1] + ' ' + words[2])
+        this_bag.add_connection(new_bag, count)
+        words = words[4:]
 
-shiny_gold_bag = bags['shiny gold']
-count = dfs_search(shiny_gold_bag) - 1
-print(count)
+  shiny_gold_bag = bags['shiny gold']
+  count = dfs_search(shiny_gold_bag) - 1
+  return count
+
+if __name__ == '__main__':
+  print(run())

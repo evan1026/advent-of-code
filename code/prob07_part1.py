@@ -23,20 +23,24 @@ def dfs_search(bag):
   return holders
 
 bags = {}
-with open('../data/prob07.txt') as f:
-  for line in f.readlines():
-    line = line.strip()
-    words = line.replace(',', '').replace('.', '').split()
+def run():
+  with open('../data/prob07.txt') as f:
+    for line in f.readlines():
+      line = line.strip()
+      words = line.replace(',', '').replace('.', '').split()
 
-    this_bag = get_bag(words[0] + ' ' + words[1])
+      this_bag = get_bag(words[0] + ' ' + words[1])
 
-    words = words[4:]
-    while words:
-      count = words[0]
-      new_bag = get_bag(words[1] + ' ' + words[2])
-      new_bag.add_connection(this_bag)
       words = words[4:]
+      while words:
+        count = words[0]
+        new_bag = get_bag(words[1] + ' ' + words[2])
+        new_bag.add_connection(this_bag)
+        words = words[4:]
 
-shiny_gold_bag = bags['shiny gold']
-holders = dfs_search(shiny_gold_bag)
-print(len(holders))
+  shiny_gold_bag = bags['shiny gold']
+  holders = dfs_search(shiny_gold_bag)
+  return len(holders)
+
+if __name__ == '__main__':
+  print(run())

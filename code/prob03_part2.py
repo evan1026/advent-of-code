@@ -16,18 +16,22 @@ class Position:
 def get(trees, pos):
   return trees[pos.y][pos.x % len(trees[pos.y])]
 
-with open('../data/prob03.txt') as f:
-  trees = [[(char == '#') for char in line.strip()] for line in f.readlines()]
+def run():
+  with open('../data/prob03.txt') as f:
+    trees = [[(char == '#') for char in line.strip()] for line in f.readlines()]
 
-total = 1
-for direction in [Position(1,1), Position(3,1), Position(5,1), Position(7,1), Position(1,2)]:
-  pos = Position(0, 0)
-  tree_count = 0
-  while pos.y < len(trees):
-    if get(trees, pos):
-      tree_count += 1
-    pos += direction
+  total = 1
+  for direction in [Position(1,1), Position(3,1), Position(5,1), Position(7,1), Position(1,2)]:
+    pos = Position(0, 0)
+    tree_count = 0
+    while pos.y < len(trees):
+      if get(trees, pos):
+        tree_count += 1
+      pos += direction
 
-  total *= tree_count
+    total *= tree_count
 
-print(total)
+  return total
+
+if __name__ == '__main__':
+  print(run())

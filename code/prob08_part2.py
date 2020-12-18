@@ -24,31 +24,34 @@ def check_for_loop(instructions):
     pc += 1
   return False, acc
 
-instructions = []
-with open('../data/prob08.txt') as f:
-  for line in f.readlines():
-    line = line.strip()
-    parts = line.split()
-    op = parts[0]
-    arg = int(parts[1])
-    instructions.append(Instruction(op, arg))
+def run():
+  instructions = []
+  with open('../data/prob08.txt') as f:
+    for line in f.readlines():
+      line = line.strip()
+      parts = line.split()
+      op = parts[0]
+      arg = int(parts[1])
+      instructions.append(Instruction(op, arg))
 
-for i in range(len(instructions)):
-  new_instructions = instructions[:]
+  for i in range(len(instructions)):
+    new_instructions = instructions[:]
 
-  inst = instructions[i]
-  if inst.op == 'nop':
-    new_op = 'jmp'
-  elif inst.op == 'acc':
-    continue
-  elif inst.op == 'jmp':
-    new_op = 'nop'
-  else:
-    print('Invalid operation ' + inst.op + ' at line ' + str(pc))
-    continue
+    inst = instructions[i]
+    if inst.op == 'nop':
+      new_op = 'jmp'
+    elif inst.op == 'acc':
+      continue
+    elif inst.op == 'jmp':
+      new_op = 'nop'
+    else:
+      print('Invalid operation ' + inst.op + ' at line ' + str(pc))
+      return -1
 
-  new_instructions[i] = Instruction(new_op, instructions[i].arg)
-  has_loop, acc_val = check_for_loop(new_instructions)
-  if not has_loop:
-    print(acc_val)
-    break
+    new_instructions[i] = Instruction(new_op, instructions[i].arg)
+    has_loop, acc_val = check_for_loop(new_instructions)
+    if not has_loop:
+      return acc_val
+
+if __name__ == '__main__':
+  print(run())
