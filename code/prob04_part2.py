@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 required_fields = set(['ecl', 'pid', 'eyr', 'hcl', 'byr', 'iyr', 'hgt'])
 eye_colors = set(['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'])
 

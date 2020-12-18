@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 import math
 
 def get_seat_id(seat):

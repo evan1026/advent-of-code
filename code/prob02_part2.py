@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 def run():
   with open('../data/prob02.txt') as f:
     valid_count = 0

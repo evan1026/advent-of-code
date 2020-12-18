@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 def get_seat_id(seat):
   bin_seat = seat.replace('F', '0').replace('B', '1').replace('R', '1').replace('L', '0')
   return int(bin_seat, 2)

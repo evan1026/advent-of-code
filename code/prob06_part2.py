@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 def get_count(answers):
   if len(answers) == 0:
     return 0

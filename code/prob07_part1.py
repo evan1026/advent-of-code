@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 class Bag:
   def __init__(self, name):
     self.name = name

@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 class Instruction:
   def __init__(self, op, arg):
     self.op = op

@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 def run():
   joltages = []
   with open('../data/prob10.txt') as f:

@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 from collections import deque
 
 def is_sum(num, nums):

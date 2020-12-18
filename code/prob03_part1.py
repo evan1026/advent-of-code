@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 class Position:
   def __init__(self, x, y):
     self.x = x

@@ -1,3 +1,6 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 def run():
   with open('../data/prob01.txt') as f:
     nums = [int(x) for x in f.readlines()]
