@@ -16,7 +16,7 @@ class Position:
 def get(trees, pos):
   return trees[pos.y][pos.x % len(trees[pos.y])]
 
-with open('../data/prob3.txt') as f:
+with open('../data/prob03.txt') as f:
   trees = [[(char == '#') for char in line.strip()] for line in f.readlines()]
 
 total = 1

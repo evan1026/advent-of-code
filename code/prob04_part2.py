@@ -35,7 +35,7 @@ def validate_field(key, value):
   except:
     return False
 
-with open('../data/prob4.txt') as f:
+with open('../data/prob04.txt') as f:
   found_fields = set()
   valid = 0
   for line in f.readlines():

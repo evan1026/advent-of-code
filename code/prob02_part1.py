@@ -1,4 +1,4 @@
-with open('../data/prob2.txt') as f:
+with open('../data/prob02.txt') as f:
   valid_count = 0
   for line in f.readlines():
     if line.strip():

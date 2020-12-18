@@ -1,4 +1,4 @@
-with open('../data/prob1.txt') as f:
+with open('../data/prob01.txt') as f:
   nums = [int(x) for x in f.readlines()]
 diffs = {}
 for num in nums:
@@ -6,3 +6,4 @@ for num in nums:
 for num in nums:
   if num in diffs:
     print(diffs[num] * num)
+    break

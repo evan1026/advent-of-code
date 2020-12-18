@@ -1,6 +1,6 @@
 required_fields = set(['ecl', 'pid', 'eyr', 'hcl', 'byr', 'iyr', 'hgt'])
 
-with open('../data/prob4.txt') as f:
+with open('../data/prob04.txt') as f:
   found_fields = set()
   valid = 0
   for line in f.readlines():
