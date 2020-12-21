@@ -1,86 +1,34 @@
 import unittest
+from parameterized import parameterized
+import importlib
 
-import prob01_part1
-import prob01_part2
-import prob02_part1
-import prob02_part2
-import prob03_part1
-import prob03_part2
-import prob04_part1
-import prob04_part2
-import prob05_part1
-import prob05_part2
-import prob06_part1
-import prob06_part2
-import prob07_part1
-import prob07_part2
-import prob08_part1
-import prob08_part2
-import prob09_part1
-import prob09_part2
-import prob10_part1
-import prob10_part2
+answers = [['01', '1', 211899],
+           ['01', '2', 275765682],
+           ['02', '1', 447],
+           ['02', '2', 249],
+           ['03', '1', 156],
+           ['03', '2', 3521829480],
+           ['04', '1', 202],
+           ['04', '2', 137],
+           ['05', '1', 864],
+           ['05', '2', 739],
+           ['06', '1', 6662],
+           ['06', '2', 3382],
+           ['07', '1', 101],
+           ['07', '2', 108636],
+           ['08', '1', 1553],
+           ['08', '2', 1877],
+           ['09', '1', 1124361034],
+           ['09', '2', 129444555],
+           ['10', '1', 2244],
+           ['10', '2', 3947645370368]]
 
 class TestAoC(unittest.TestCase):
-  def test_p1p1(self):
-    self.assertEqual(prob01_part1.run(), 211899)
 
-  def test_p1p2(self):
-    self.assertEqual(prob01_part2.run(), 275765682)
-
-  def test_p2p1(self):
-    self.assertEqual(prob02_part1.run(), 447)
-
-  def test_p2p2(self):
-    self.assertEqual(prob02_part2.run(), 249)
-
-  def test_p3p1(self):
-    self.assertEqual(prob03_part1.run(), 156)
-
-  def test_p3p2(self):
-    self.assertEqual(prob03_part2.run(), 3521829480)
-
-  def test_p4p1(self):
-    self.assertEqual(prob04_part1.run(), 202)
-
-  def test_p4p2(self):
-    self.assertEqual(prob04_part2.run(), 137)
-
-  def test_p5p1(self):
-    self.assertEqual(prob05_part1.run(), 864)
-
-  def test_p5p2(self):
-    self.assertEqual(prob05_part2.run(), 739)
-
-  def test_p6p1(self):
-    self.assertEqual(prob06_part1.run(), 6662)
-
-  def test_p6p2(self):
-    self.assertEqual(prob06_part2.run(), 3382)
-
-  def test_p7p1(self):
-    self.assertEqual(prob07_part1.run(), 101)
-
-  def test_p7p2(self):
-    self.assertEqual(prob07_part2.run(), 108636)
-
-  def test_p8p1(self):
-    self.assertEqual(prob08_part1.run(), 1553)
-
-  def test_p8p2(self):
-    self.assertEqual(prob08_part2.run(), 1877)
-
-  def test_p9p1(self):
-    self.assertEqual(prob09_part1.run(), 1124361034)
-
-  def test_p9p2(self):
-    self.assertEqual(prob09_part2.run(), 129444555)
-
-  def test_p10p1(self):
-    self.assertEqual(prob10_part1.run(), 2244)
-
-  def test_p10p2(self):
-    self.assertEqual(prob10_part2.run(), 3947645370368)
+  @parameterized.expand(answers)
+  def test(self, prob, part, answer):
+    prob_module = importlib.import_module('prob%s_part%s' % (prob, part))
+    self.assertEqual(prob_module.run(), answer)
 
 
 if  __name__ == '__main__':
