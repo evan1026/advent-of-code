@@ -1,5 +1,7 @@
 import os
-os.chdir(os.path.dirname(__file__))
+dirname = os.path.dirname(__file__)
+if dirname:
+  os.chdir(dirname)
 
 class Instruction:
   def __init__(self, op, arg):

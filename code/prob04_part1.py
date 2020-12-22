@@ -1,5 +1,7 @@
 import os
-os.chdir(os.path.dirname(__file__))
+dirname = os.path.dirname(__file__)
+if dirname:
+  os.chdir(dirname)
 
 def run():
   required_fields = set(['ecl', 'pid', 'eyr', 'hcl', 'byr', 'iyr', 'hgt'])

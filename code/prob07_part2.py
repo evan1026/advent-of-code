@@ -1,5 +1,7 @@
 import os
-os.chdir(os.path.dirname(__file__))
+dirname = os.path.dirname(__file__)
+if dirname:
+  os.chdir(dirname)
 
 class Bag:
   def __init__(self, name):
